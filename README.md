@@ -1,78 +1,108 @@
-\# Production Incident Simulator
+# Production Incident Simulator
 
+A collection of infrastructure failure simulations, troubleshooting runbooks, and incident reports for practicing real-world Cloud Support and System Administration tasks.
 
+This project focuses on creating common operational issues intentionally and resolving them using standard troubleshooting methods.
 
-> Real-world operational runbooks and post-mortem analyses for Cloud and Infrastructure support roles.
+---
 
+## 📂 Repository Structure
 
-
-This repo contains several bash-based simulations of infrastructure failures, including comprehensive runbook guides for resolving these problems and historical incident analyses. The use of this code demonstrates practical knowledge of \*\*Cloud Support\*\*, \*\*System Administration\*\*, and \*\*Reliability Engineering\*\* through the intentional creation of faults followed by their repair.
-
-
-
-
-
-\## 📖 Core Concepts
-
-In a true operations environment, reference materials must be strictly separated from historical event logs. This repository is structured around that principle:
-
-\* \*\*Runbooks (`/runbooks`)\*\*: Living reference documents detailing step-by-step resolution paths for known, recurring issues.
-
-\* \*\*Incident Reports (`/incidents`)\*\*: Documentation of specific, historical simulation events, including the scripts used to trigger the failure and the resulting post-mortem.
-
-
-
-\## 📂 Repository Structure
-
-
-
+```text
 production-incident-simulator/
 
 ├── README.md
-
-├── runbooks/                  
-
+│
+├── runbooks/
 │   ├── aws/
-
 │   │   └── runbook.md
-
+│   │
 │   ├── linux/
-
 │   │   └── runbook.md
-
+│   │
 │   └── networking/
-
 │       └── runbook.md
+│
+└── incidents/
+    ├── 2026-05-13-scenario/
+    │   ├── simulate.sh
+    │   ├── reset.sh
+    │   └── incident-report.md
+    │
+    └── 2026-05-14-scenario/
+        ├── simulate.sh
+        ├── reset.sh
+        └── incident-report.md
+```
 
-└── incidents/                 
+---
 
-&#x20;   ├── 2026-05-13-scenario/
+## 📖 About
 
-&#x20;   │   ├── simulate.sh
+The repository is divided into two parts:
 
-&#x20;   │   ├── reset.sh
+### Runbooks (`/runbooks`)
+Contains troubleshooting steps and resolution guides for common infrastructure issues.
 
-&#x20;   │   └── incident-report.md
+Topics include:
+- Linux administration
+- AWS basics
+- Networking troubleshooting
 
-&#x20;   └── 2026-05-14-scenario/
+### Incident Reports (`/incidents`)
+Contains simulated incidents with:
+- Failure simulation scripts
+- Recovery scripts
+- Incident documentation and root cause analysis
 
-&#x20;       ├── simulate.sh
+---
 
-&#x20;       ├── reset.sh
+## 🛠️ Technologies Used
 
-&#x20;       └── incident-report.md
+- Bash / Shell Scripting
+- Linux
+- AWS (EC2, VPC, S3)
+- Networking Basics
+- Markdown
 
+---
 
+## ▶️ Example Usage
 
-\## 🛠️ Technologies
+### Run the simulation
 
+```bash
+chmod +x simulate.sh
+./simulate.sh
+```
 
+### Reset the environment
 
-\* \*\*Shell Scripting\*\* (Bash)
+```bash
+chmod +x reset.sh
+./reset.sh
+```
 
-\* \*\*Linux/Unix\*\* System Administration
+---
 
-\* \*\*AWS\*\* Core Services (EC2, VPC, S3)
+## 📌 Purpose
 
-\* \*\*Markdown\*\*
+This project was created to practice:
+- Infrastructure troubleshooting
+- Incident handling
+- Linux system administration
+- Cloud support basics
+- Writing operational documentation
 
+---
+
+## ⚠️ Note
+
+These scripts are for learning purposes only.
+
+Run them only in:
+- Virtual machines
+- Test environments
+- Personal labs
+
+Do not run them on production systems.
