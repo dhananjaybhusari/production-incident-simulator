@@ -1,108 +1,51 @@
-# Production Incident Simulator
+# production-incident-simulator
 
-A collection of infrastructure failure simulations, troubleshooting runbooks, and incident reports for practicing real-world Cloud Support and System Administration tasks.
+I built this to practice diagnosing real infrastructure failures on AWS EC2 + Linux.
 
-This project focuses on creating common operational issues intentionally and resolving them using standard troubleshooting methods.
-
----
-
-## 📂 Repository Structure
-
-```text
-production-incident-simulator/
-
-├── README.md
-│
-├── runbooks/
-│   ├── aws/
-│   │   └── runbook.md
-│   │
-│   ├── linux/
-│   │   └── runbook.md
-│   │
-│   └── networking/
-│       └── runbook.md
-│
-└── incidents/
-    ├── 2026-05-13-scenario/
-    │   ├── simulate.sh
-    │   ├── reset.sh
-    │   └── incident-report.md
-    │
-    └── 2026-05-14-scenario/
-        ├── simulate.sh
-        ├── reset.sh
-        └── incident-report.md
-```
+Each folder is one scenario. Something is broken. You have to figure out what and fix it.
 
 ---
 
-## 📖 About
+## scenarios
 
-The repository is divided into two parts:
-
-### Runbooks (`/runbooks`)
-Contains troubleshooting steps and resolution guides for common infrastructure issues.
-
-Topics include:
-- Linux administration
-- AWS basics
-- Networking troubleshooting
-
-### Incident Reports (`/incidents`)
-Contains simulated incidents with:
-- Failure simulation scripts
-- Recovery scripts
-- Incident documentation and root cause analysis
+| folder | what breaks | symptom |
+|--------|-------------|---------|
+| [01-port-blocked](./01-port-blocked/) | iptables blocks port 80 | connection timeout |
+| [02-disk-full](./02-disk-full/) | /var partition at 100% | HTTP 500 error |
+| [03-service-crash](./03-service-crash/) | apache stopped + disabled | connection refused |
 
 ---
 
-## 🛠️ Technologies Used
+## setup
 
-- Bash / Shell Scripting
-- Linux
-- AWS (EC2, VPC, S3)
-- Networking Basics
-- Markdown
-
----
-
-## ▶️ Example Usage
-
-### Run the simulation
+EC2 instance with Apache running. t2.micro free tier works fine.
 
 ```bash
-chmod +x simulate.sh
-./simulate.sh
-```
+# Ubuntu
+sudo apt update && sudo apt install -y apache2
 
-### Reset the environment
+# Amazon Linux
+sudo yum install -y httpd && sudo systemctl start httpd
+```
 
 ```bash
-chmod +x reset.sh
-./reset.sh
+git clone https://github.com/dhananjaybhusari/production-incident-simulator.git
+cd production-incident-simulator
+find . -name "*.sh" -exec chmod +x {} \;
 ```
 
+## usage
+
+```bash
+cd 01-port-blocked
+
+sudo bash break.sh      # breaks the system
+sudo bash fix.sh        # fixes it
+cat notes.md            # what I learned
+```
+
+Try to fix it yourself before looking at notes.md.
+
 ---
 
-## 📌 Purpose
-
-This project was created to practice:
-- Infrastructure troubleshooting
-- Incident handling
-- Linux system administration
-- Cloud support basics
-- Writing operational documentation
-
----
-
-## ⚠️ Note
-
-These scripts are for learning purposes only.
-
-Run them only in:
-- Virtual machines
-- Test environments
-- Personal labs
-
-Do not run them on production systems.
+**stack:** AWS EC2, Ubuntu 22.04, Apache2, Bash, Systemd
