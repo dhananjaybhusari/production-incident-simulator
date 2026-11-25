@@ -12,17 +12,26 @@ echo "=== Setting up EC2 Incident Simulator Environment ==="
 if command -v dnf &>/dev/null; then
     echo "[1/3] Detected Amazon Linux 2023 / Fedora (dnf)"
     sudo dnf update -y
-    echo "[2/3] Installing Nginx, curl, net-tools, and iptables..."
-    sudo dnf install -y nginx curl net-tools iptables iptables-nft
+    echo "[2/3] Installing Nginx, net-tools, and iptables..."
+    # AL2023 includes curl-minimal by default; do not specify curl to prevent dnf package conflicts
+    PACKAGES="nginx net-tools iptables iptables-nft"
+    if ! command -v curl &>/dev/null; then
+        PACKAGES="$PACKAGES curl"
+    fi
+    sudo dnf install -y $PACKAGES
 elif command -v yum &>/dev/null; then
     echo "[1/3] Detected Amazon Linux 2 / CentOS / RHEL (yum)"
     sudo yum update -y
-    echo "[2/3] Installing Nginx, curl, net-tools, and iptables..."
+    echo "[2/3] Installing Nginx, net-tools, and iptables..."
     # If Amazon Linux 2, nginx is in amazon-linux-extras
     if command -v amazon-linux-extras &>/dev/null; then
         sudo amazon-linux-extras enable nginx1 || true
     fi
-    sudo yum install -y nginx curl net-tools iptables iptables-services
+    PACKAGES="nginx net-tools iptables iptables-services"
+    if ! command -v curl &>/dev/null; then
+        PACKAGES="$PACKAGES curl"
+    fi
+    sudo yum install -y $PACKAGES
 elif command -v apt-get &>/dev/null; then
     echo "[1/3] Detected Ubuntu / Debian (apt-get)"
     sudo apt-get update -y
