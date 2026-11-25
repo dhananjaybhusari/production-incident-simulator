@@ -2,12 +2,13 @@
 
 <p align="center">
   <a href="https://ubuntu.com/"><img src="https://img.shields.io/badge/Ubuntu-22.04_LTS-E95420?logo=ubuntu&logoColor=white" alt="Ubuntu"></a>
+  <a href="https://aws.amazon.com/linux/"><img src="https://img.shields.io/badge/Amazon_Linux-2023_%2F_AL2-FF9900?logo=amazon-aws&logoColor=white" alt="Amazon Linux"></a>
   <a href="https://aws.amazon.com/ec2/"><img src="https://img.shields.io/badge/AWS-EC2-232F3E?logo=amazon-aws&logoColor=white" alt="AWS"></a>
   <a href="https://www.gnu.org/software/bash/"><img src="https://img.shields.io/badge/Shell-Bash-4EAA25?logo=gnu-bash&logoColor=white" alt="Bash"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
 </p>
 
-A hands-on tool to simulate, diagnose, and fix real-world Linux and AWS production incidents.
+A hands-on tool to simulate, diagnose, and fix real-world Linux and AWS production incidents on **Ubuntu** and **Amazon Linux (AL2023 / AL2)**.
 
 Instead of reading troubleshooting articles, this tool breaks a live EC2 system on purpose - dropping firewall packets, crashing daemons, or filling up disk storage, so you can troubleshoot the issue yourself in the terminal and verify your fix.
 
@@ -78,7 +79,7 @@ production-incident-simulator/
 
 ---
 
-## Quickstart (Ubuntu 22.04 / AWS EC2)
+## Quickstart (Amazon Linux / Ubuntu / EC2)
 
 ```bash
 # 1. Clone repository

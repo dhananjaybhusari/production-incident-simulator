@@ -4,6 +4,13 @@
 # Purpose: Simulates a crashed/stopped web service daemon.
 # ==============================================================================
 
+# Pre-flight check: ensure systemctl and nginx exist
+if ! command -v nginx &>/dev/null; then
+    echo "[ERROR] 'nginx' is not installed!"
+    echo "Please run: sudo bash setup-ec2.sh"
+    exit 1
+fi
+
 echo ">>> [ALERT] Injecting Scenario 02: Stopping Nginx web service..."
 
 # Stop the Nginx service

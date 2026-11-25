@@ -4,6 +4,13 @@
 # Purpose: Simulates a network firewall drop on port 80.
 # ==============================================================================
 
+# Pre-flight check: ensure iptables is installed
+if ! command -v iptables &>/dev/null; then
+    echo "[ERROR] 'iptables' command not found!"
+    echo "Please run: sudo bash setup-ec2.sh"
+    exit 1
+fi
+
 echo ">>> [ALERT] Injecting Scenario 01: Dropping port 80 traffic..."
 
 # Add rule to Linux firewall (iptables) to DROP incoming packets on port 80

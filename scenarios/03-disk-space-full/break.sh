@@ -4,6 +4,13 @@
 # Purpose: Simulates a 100% full disk partition in a safe, controlled way.
 # ==============================================================================
 
+# Pre-flight check: ensure dd and mkfs.ext4 exist
+if ! command -v dd &>/dev/null || ! command -v mkfs.ext4 &>/dev/null; then
+    echo "[ERROR] 'dd' or 'mkfs.ext4' not found!"
+    echo "Please run: sudo bash setup-ec2.sh"
+    exit 1
+fi
+
 echo ">>> [ALERT] Injecting Scenario 03: Creating 100% full storage partition..."
 
 # Create a safe 50MB mock storage disk using a loopback image
