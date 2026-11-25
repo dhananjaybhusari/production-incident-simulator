@@ -41,6 +41,7 @@ sudo iptables -L INPUT -n -v
 Remove the DROP rule from iptables:
 ```bash
 sudo iptables -D INPUT -p tcp --dport 80 -j DROP
+sudo ip6tables -D INPUT -p tcp --dport 80 -j DROP 2>/dev/null || true
 ```
 
 Now test again:

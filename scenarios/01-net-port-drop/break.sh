@@ -13,8 +13,11 @@ fi
 
 echo ">>> [ALERT] Injecting Scenario 01: Dropping port 80 traffic..."
 
-# Add rule to Linux firewall (iptables) to DROP incoming packets on port 80
-sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+# Add rule to Linux firewall to DROP incoming packets on port 80 (IPv4 and IPv6)
+sudo iptables -I INPUT 1 -p tcp --dport 80 -j DROP
+if command -v ip6tables &>/dev/null; then
+    sudo ip6tables -I INPUT 1 -p tcp --dport 80 -j DROP 2>/dev/null || true
+fi
 
 echo ">>> Done! Port 80 packets are now silently dropped."
 echo ">>> Symptom: curl http://localhost will hang and time out."
