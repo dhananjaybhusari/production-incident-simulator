@@ -8,7 +8,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"></a>
 </p>
 
-A hands-on tool to simulate, diagnose, and fix real-world Linux and AWS production incidents on **Ubuntu** and **Amazon Linux (AL2023 / AL2)**.
+A hands-on tool to simulate, diagnose, and fix real-world Linux and AWS production incidents across any standard distribution (**Ubuntu**, **Debian**, **Amazon Linux 2023/AL2**, **RHEL**, and **CentOS**).
 
 Instead of reading troubleshooting articles, this tool breaks a live EC2 system on purpose - dropping firewall packets, crashing daemons, or filling up disk storage, so you can troubleshoot the issue yourself in the terminal and verify your fix.
 
@@ -79,7 +79,9 @@ production-incident-simulator/
 
 ---
 
-## Quickstart (Amazon Linux / Ubuntu / EC2)
+## Quickstart (Any Linux EC2 Instance)
+
+Supported on **Ubuntu**, **Amazon Linux (AL2023 / AL2)**, **Debian**, and **RHEL / CentOS**.
 
 ```bash
 # 1. Clone repository
