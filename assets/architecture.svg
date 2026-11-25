@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 210" width="100%" height="100%">
+  <defs>
+    <!-- Arrow Markers -->
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowEmerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 7 5 L 0 8.5 z" fill="#10b981"/>
+    </marker>
+
+    <!-- Subtle glow filter -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <style>
+    .step { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
+    .heading { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; font-size: 15px; font-weight: 700; fill: #f1f5f9; }
+    .subtext { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; font-size: 12px; fill: #94a3b8; font-weight: 400; }
+  </style>
+
+  <!-- Background Canvas (GitHub / Linear Dark Mode) -->
+  <rect width="920" height="210" rx="12" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- ==================== CONNECTING LINES ==================== -->
+  <!-- 1 -> 2 -->
+  <path d="M 215 88 L 265 88" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrowDark)"/>
+  
+  <!-- 2 -> 3 -->
+  <path d="M 445 88 L 495 88" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrowDark)"/>
+
+  <!-- 3 -> 4 -->
+  <path d="M 675 88 L 725 88" stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arrowDark)"/>
+
+  <!-- Return Loop (4 -> 1) -->
+  <path d="M 815 138 L 815 174 L 125 174 L 125 138" stroke="#10b981" stroke-width="1.8" stroke-dasharray="4,4" fill="none" marker-end="url(#arrowEmerald)"/>
+
+  <!-- Return Loop Badge -->
+  <rect x="405" y="163" width="110" height="22" rx="11" fill="#06281e" stroke="#065f46" stroke-width="1"/>
+  <text x="460" y="178" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" font-weight="600" fill="#34d399">Restores Baseline</text>
+
+  <!-- ==================== CARD 1: CONTROL PLANE ==================== -->
+  <g transform="translate(35, 38)" filter="url(#cardShadow)">
+    <rect width="180" height="100" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="100" rx="2" fill="#38bdf8"/>
+    
+    <text x="18" y="28" class="step" fill="#38bdf8">01 / Control Plane</text>
+    <text x="18" y="54" class="heading">simulator.sh</text>
+    <text x="18" y="76" class="subtext">Interactive CLI Runner</text>
+  </g>
+
+  <!-- ==================== CARD 2: FAULT INJECTION ==================== -->
+  <g transform="translate(265, 38)" filter="url(#cardShadow)">
+    <rect width="180" height="100" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="100" rx="2" fill="#f43f5e"/>
+    
+    <text x="18" y="28" class="step" fill="#fb7185">02 / Fault Injection</text>
+    <text x="18" y="54" class="heading">break.sh</text>
+    <text x="18" y="76" class="subtext">Injects Linux Failure</text>
+  </g>
+
+  <!-- ==================== CARD 3: SRE TRIAGE ==================== -->
+  <g transform="translate(495, 38)" filter="url(#cardShadow)">
+    <rect width="180" height="100" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="100" rx="2" fill="#818cf8"/>
+    
+    <text x="18" y="28" class="step" fill="#a5b4fc">03 / Systems Triage</text>
+    <text x="18" y="54" class="heading">Live Diagnosis</text>
+    <text x="18" y="76" class="subtext">curl • ss • iptables • df</text>
+  </g>
+
+  <!-- ==================== CARD 4: VERIFICATION ==================== -->
+  <g transform="translate(725, 38)" filter="url(#cardShadow)">
+    <rect width="180" height="100" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <rect x="0" y="0" width="4" height="100" rx="2" fill="#34d399"/>
+    
+    <text x="18" y="28" class="step" fill="#34d399">04 / Verification</text>
+    <text x="18" y="54" class="heading">verify.sh</text>
+    <text x="18" y="76" class="subtext">Automated Assertions</text>
+  </g>
+</svg>

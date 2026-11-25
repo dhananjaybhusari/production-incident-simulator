@@ -1,0 +1,10 @@
+# Private interview preparation notes (never pushed to GitHub)
+prep/
+private/
+*.private.md
+
+# OS and editor temp files
+.DS_Store
+*.swp
+*.tmp
+*.log
